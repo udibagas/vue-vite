@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: blueviolet;
+  padding: 10px 20px 15px;
+  color: white;
+  height: 60px;
+}
+
+aside {
+  width: 240px;
+  padding: 20px;
+  background-color: #f0f0f0;
+  height: calc(100vh - 60px);
+}
+
+main {
+  margin: 20px;
+  padding: 20px;
+  flex: 1;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
