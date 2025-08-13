@@ -5,7 +5,7 @@
       type="text"
       placeholder="New todo"
       v-model="newTodo.task"
-      class="border border-gray-500 rounded-lg px-4 py-2 w-[300px]"
+      class="border border-gray-500 rounded-lg px-4 py-2 w-full"
     />
     <Button>Simpan</Button>
     <!-- conditional rendering -->
@@ -35,8 +35,7 @@ watch(
 );
 
 function handleForm(event) {
-  if (newTodo.task.length == 0) {
-    error.value = "Todo harus diisi";
+  if (newTodo.task.length < 5) {
     return;
   }
 
