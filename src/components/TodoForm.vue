@@ -7,7 +7,7 @@
       v-model="newTodo.task"
       class="border border-gray-500 rounded-lg px-4 py-2 w-full"
     />
-    <Button>Simpan</Button>
+    <Button :disabled="!newTodo.task || newTodo.task.length < 5">Simpan</Button>
     <!-- conditional rendering -->
   </form>
   <div class="bg-red-50 text-red-500 rounded-lg mb-8 p-4" v-if="error">
@@ -26,7 +26,7 @@ watch(
   () => newTodo.task, // source (state yg di watch, bisa berupa ref atau reactive)
   // fungsi yang dijalankan ketika state berubah
   (v) => {
-    if (v.length < 5) {
+    if (v && v.length < 5) {
       error.value = "Task harus >= 5 karakter";
     } else {
       error.value = "";
@@ -39,8 +39,7 @@ function handleForm(event) {
     return;
   }
 
-  emit("saveTodo", { ...newTodo });
-  newTodo.id = Date.now();
+  emit("saveTodo", { ...newTodo, id: Date.now() });
   newTodo.task = "";
   error.value = "";
 }

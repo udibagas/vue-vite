@@ -1,28 +1,14 @@
 <template>
-  <div class="flex justify-between gap-4">
-    <div class="w-[200px] rounded-lg border border-gray-300 p-4 shadow">
-      Total Task
-      <div class="text-3xl text-purple-500">{{ todos.length }}</div>
-    </div>
-
-    <div class="w-[200px] rounded-lg border border-gray-300 p-4 shadow">
-      Completed
-      <div class="text-3xl text-green-500">
-        {{ completedTask }}
-      </div>
-    </div>
-
-    <div class="w-[200px] rounded-lg border border-gray-300 p-4 shadow">
-      Pending
-      <div class="text-3xl text-red-500">
-        {{ pendingTask }}
-      </div>
-    </div>
+  <div class="flex justify-between gap-4 flex-wrap">
+    <StatBox label="Total Task" :value="todos.length" />
+    <StatBox label="Completed" :value="completedTask" color="green-500" />
+    <StatBox label="Pending" :value="pendingTask" color="red-500" />
   </div>
 </template>
 
 <script setup>
 import { computed } from "vue";
+import StatBox from "./StatBox.vue";
 
 const { todos } = defineProps(["todos"]);
 

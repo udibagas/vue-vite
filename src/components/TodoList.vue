@@ -7,6 +7,7 @@
         'p-4',
         'rounded-lg',
         'hover:bg-purple-100',
+        'hover:scale-102',
         { 'line-through': todo.completed },
       ]"
     >
