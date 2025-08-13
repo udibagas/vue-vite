@@ -7,13 +7,12 @@
     <p class="error" v-if="error">{{ error }}</p>
   </form>
 
-  <ul>
-    <!-- list rendering -->
-    <li v-for="todo in todos">{{ todo }}</li>
-  </ul>
+  <TodoList :todos="todos" />
 </template>
 
 <script>
+import TodoList from "./TodoList.vue";
+
 // options api
 export default {
   data() {
@@ -34,6 +33,10 @@ export default {
       this.todos.push(this.newTodo);
       this.newTodo = "";
     },
+  },
+
+  components: {
+    TodoList,
   },
 };
 </script>
